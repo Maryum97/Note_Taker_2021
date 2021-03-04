@@ -9,6 +9,9 @@ const PORT = process.env.PORT || 3000;
 // Set up the Express app
 const app = express();
 
+// Render the css stylesheet properly
+app.use(express.static("main-files"));
+
 // Stringify the code
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
