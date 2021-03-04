@@ -5,21 +5,11 @@ let saveNoteBtn = $('.save-note');
 let newNoteBtn = $('.new-note');
 let noteList = $('.list-container .list-group');
 
-// Show an element
-const show = (elem) => {
-    elem.style.display = 'inline';
-};
-
-// Hide an element
-const hide = (elem) => {
-    elem.style.display = 'none';
-};
-
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
 
 // Get all the notes from the db
-const getNotes = () => {
+var getNotes = () => {
     return $.ajax({
         url: '/api/notes',
         method: 'GET'
@@ -27,7 +17,7 @@ const getNotes = () => {
 };
 
 // Save a note to the db
-const saveNote = (note) => {
+var saveNote = (note) => {
     return $.ajax({
         url: "/api/notes",
         data: note,
@@ -36,7 +26,7 @@ const saveNote = (note) => {
 };
 
 // Save the note to the db
-const deleteNote = (id) => {
+var deleteNote = (id) => {
     return $.ajax({
         url: "api/notes/" + id,
         method: "DELETE"
@@ -44,7 +34,7 @@ const deleteNote = (id) => {
 };
 
 // If there is an activeNote, display it, otherwise render empty inputs
-const renderActiveNote = () => {
+var renderActiveNote = () => {
     $saveNoteBtn.hide();
 
     if (activeNote.id) {
@@ -61,7 +51,7 @@ const renderActiveNote = () => {
 };
 
 // Get the note data from the inputs, save it to the db and update the view
-const handleNoteSave = () => {
+var handleNoteSave = () => {
     const newNote = {
         title: $noteTitle.val(),
         text: $noteText.val(),
@@ -73,7 +63,7 @@ const handleNoteSave = () => {
 };
 
 // Delete the clicked note
-const handleNoteDelete = (e) => {
+var handleNoteDelete = (e) => {
     // prevents the click listener for the list from being called when the button inside of it is clicked
     e.stopPropagation();
 
@@ -92,14 +82,14 @@ const handleNoteDelete = (e) => {
 };
 
 // Sets the activeNote and displays it
-const handleNoteView = (e) => {
+var handleNoteView = (e) => {
     e.preventDefault();
     activeNote = $(this).data();
     renderActiveNote();
 };
 
 // Sets the activeNote to and empty object and allows the user to enter a new note
-const handleNewNoteView = (e) => {
+var handleNewNoteView = (e) => {
     activeNote = {};
     renderActiveNote();
 };

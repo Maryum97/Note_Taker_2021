@@ -1,7 +1,5 @@
 // Dependancies
 const express = require('express');
-const path = require('path');
-const fs = requier('fs');
 
 // Define the port
 const PORT = process.env.PORT || 3000;
