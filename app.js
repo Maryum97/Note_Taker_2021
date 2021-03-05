@@ -1,70 +1,99 @@
+//======================================================================
 // Dependancies
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const database = require('./db/db.json');
 
+//======================================================================
 // Define the port
 const PORT = process.env.PORT || 3000;
 
+//======================================================================
 // Set up the Express app
 const app = express();
 
+//======================================================================
 // Render the css stylesheet properly
 app.use(express.static("main-files"));
 
-// Stringify the code
+//======================================================================
+// Set up the code for data parsing, as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Get the routes:
-
-// API routing:
-// GET `/notes` - Should return the `notes.html` file.
-app.get("/notes", function (req, res) {
-    res.sendFile(path.join(__dirname, "./main-files/html/notes.html"));
-});
+//======================================================================
+// Page loading, to start with index.html and then notes.html
 
 // GET `/` - Should return the `index.html` file
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "./main-files/html/index.html"));
 });
 
-// GET `/api/notes` - Should read the `db.json` file and return all saved notes as JSON.
-let noteList = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
-
-app.get("/api/notes", (req, res) => {
-    return res.json(noteList);
+// GET `/notes` - Should return the `notes.html` file.
+app.get("/notes", function (req, res) {
+    res.sendFile(path.join(__dirname, "./main-files/html/notes.html"));
 });
 
-// POST `/api/notes` - Should receive a new note to save on the request body, add it to the `db.json` file, and then return the new note to the client.
-app.post('/api/notes', (req, res) => {
-    // get Id of last note if it exists
-    let lastId;
-    if (noteList.length) {
-        lastId = Math.max(...(noteList.map(note => note.id)));
+//======================================================================
+// GET, POST, DELETE API Endpoints
+
+// GET and POST functions grabbing from the same route here
+app.route("/api/notes").get((req, res) => { // Get notes list
+    res.json(database);
+}).post((req, res) => { // Add new notes to the db file
+    let jsonFilePath = path.join(__dirname, "/db/db.json");
+    let newNote = req.body;
+
+    // Set original id to new note added to db
+    let greatestId = 99;
+    for (let i = 0; i < database.length; i++) {
+        let indivNote = database[i];
+
+        if (indivNote.id > greatestId) {
+            greatestId = indivNote.id;
+        }
     }
-    else {
-        lastId = 0;
+
+    // Assign new id to new notes added to db
+    newNote = greatestId + 1;
+    database.push(newNote);
+
+    // Rewrite db.json file
+    fs.writeFile(jsonFilePath, JSON.stringify(database), (err) => {
+        if (err) {
+            return console.log(err);
+        }
+        console.log("Your note has been saved!");
+    });
+    res.json(newNote);
+});
+
+//=================================================================
+// Delete a note based on an ID
+app.delete("/api/notes/:id", (req, res) => {
+    let jsonFilePath = path.join(__dirname, "/db/db.json");
+
+    // Request to delete note by id
+    for (let i = 0; i < database.length; i++) {
+        if (database[i].id === req.params.id) {
+            database.splice(i, 1);
+            break;
+        }
     }
 
-    //Starts the id's at 1
-    const id = lastId + 1;
+    // Write db.json file again
+    fs.writeFileSync(jsonFilePath, JSON.stringify(database), (err) => {
 
-    // pushes the id of the note along with the rest of the text/input of the array in the request.body
-    noteList.push({ id, ...req.body });
-    //Removes last index
-    res.json(noteList.slice(-1));
-});
+        if (err) {
+            return console.log(err);
+        } else {
+            console.log("Your note has been deleted!");
+        }
+    });
+    res.json(database);
+})
 
-// DELETE `/api/notes/:id` -
-app.delete('/api/notes/:id', (req, res) => {
-    //finds note by id, then converts the string into a JSON object with the id parameters of the request made
-    let findNote = noteList.find(({ id }) => id === JSON.parse(req.params.id));
-
-    //Delete object matching the index of the note ID
-    noteList.splice(noteList.indexOf(findNote), 1);
-    res.end("Note was deleted");
-});
-
+//=================================================================
 // Start the server to listen to the request
 app.listen(PORT, () => console.log(`Listening on: http://localhost:${PORT}`));

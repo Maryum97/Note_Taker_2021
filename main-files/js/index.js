@@ -1,15 +1,3 @@
-// // Depnendancy
-// const { v4: uuidv4 } = require('uuid');
-
-// // Generate random id
-// const uuidv4 = () => {
-//     return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
-//         (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
-//     );
-// }
-
-// uuidv4();
-
 // Call elements from the './notes' page
 let noteTitle = $('.note-title');
 let noteText = $('.note-textarea');
@@ -38,8 +26,9 @@ var saveNote = (note) => {
 };
 
 // Save the note to the db
-var deleteNote = (id) => {
-    return (`/api/notes/${id}`, {
+var deleteNote = function (id) {
+    return $.ajax({
+        url: "api/notes/" + id,
         method: "DELETE"
     });
 };
@@ -86,6 +75,8 @@ var handleNoteDelete = (e) => {
         activeNote = {};
     }
 
+    console.log(activeNote.id);
+
     deleteNote(note.id).then(() => {
         getAndRenderNotes();
         renderActiveNote();
@@ -93,21 +84,20 @@ var handleNoteDelete = (e) => {
 };
 
 // Sets the activeNote and displays it
-var handleNoteView = (e) => {
-    e.preventDefault();
+var handleNoteView = () => {
     activeNote = $(this).data();
     renderActiveNote();
 };
 
 // Sets the activeNote to and empty object and allows the user to enter a new note
-var handleNewNoteView = (e) => {
+var handleNewNoteView = () => {
     activeNote = {};
     renderActiveNote();
 };
 
 // If a note's title or text are empty, hide the save button
 // Or else show it
-var handleRenderSaveBtn = function () {
+var handleRenderSaveBtn = () => {
     if (!noteTitle.val().trim() || !noteText.val().trim()) {
         saveNoteBtn.hide();
     } else {
@@ -116,7 +106,7 @@ var handleRenderSaveBtn = function () {
 };
 
 // Render's the list of note titles
-var renderNoteList = function (notes) {
+var renderNoteList = (notes) => {
     noteList.empty();
 
     var noteListItems = [];
