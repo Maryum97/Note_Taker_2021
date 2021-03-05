@@ -42,7 +42,6 @@ app.post('/api/notes', (req, res) => {
     let lastId;
     if (noteList.length) {
         lastId = Math.max(...(noteList.map(note => note.id)));
-        //Otherwise set to 0
     }
     else {
         lastId = 0;
