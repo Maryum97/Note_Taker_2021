@@ -2,7 +2,7 @@
 <h1 style="align: center;">Note Taker 👋</h1>
 
 ## 🔍 Description
-This repository contains...
+This repository contains one of the very interesting phase 2 homework assignments for the Programming course at University of Birmingham: the 'Note Taker'. This app is designed, not just for any targetted demographic, but for potentially every working person around the world. It helps users to store their tasks or memories in the form of 'notes', and then delete them once achieved or irrelevant.
 
 ## Table of Contents
 - [Description](#description)
