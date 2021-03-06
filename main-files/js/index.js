@@ -134,6 +134,8 @@ const renderNoteList = async (notes) => {
     spanEl.innerText = text;
     spanEl.addEventListener('click', handleNoteView);
     liEl.append(spanEl);
+
+    // Create delete button here and append class
     if (delBtn) {
       const delBtnEl = document.createElement('i');
       delBtnEl.classList.add(
@@ -149,6 +151,7 @@ const renderNoteList = async (notes) => {
     return liEl;
   };
 
+  // Append notes to list
   if (jsonNotes.length === 0) {
     noteListItems.push(createLi('No saved Notes', false));
   }
