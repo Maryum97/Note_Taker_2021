@@ -35,8 +35,14 @@ After installing the relevant apps and packages defined above, the user must run
 
 In order to kill the run command, simply press 'Ctrl + C' in the server. This terminates the rendering of the app in the browser.
 
+The app itself is very simplistic and user-friendly. On opening the link to the app, you are greeting with a start button for Note Taker on the landing page. The button takes you to the main page where you save your notes. All you need to do is to fill out the form with a valid title and description for your task/memory/etc, on the notes page. On filling out BOTH inputs, a 'Save' button appears in the header on the right; click on that to save your note on the left of the page, where all your notes append as a list.
+
+Furthermore, you are also able to delete a note using the red button on the note that looks like a bin. To see your previous note and description, click on that note in the list and it renders on the page. Click on the 'pencil' to remove the note from the page.
+
 ## 💻 Usage
-Read the instructions and use the app at all times, but do ensure that the 'node server.js' command is always running in the server.
+Read the instructions and use the app at all times, but do ensure that the 'node server.js' command is always running in the server. Here is an image of the deployed app:
+
+![Annotation 2021-03-07 173349](https://user-images.githubusercontent.com/73832871/110248971-9b613780-7f6b-11eb-835c-1640892fcf4b.png)
 
 ## License
 <a href="https://github.com/Maryum97/Note_Taker_2021/blob/main/LICENSE">MIT License</a>
@@ -52,10 +58,10 @@ This repository does not have any test files. It does, however, pass the require
 
 ## 💐 Credits
 I would like to credit the following sources and people for the successful creation of my app:
-1. <a href="https://w3schools.com/" target="_blank">w3schools.com</a>
-2. <a href="https://stackoverflow.com/" target="_blank">stackoverflow.com</a>
-3. <a href="https://github.com/" target="_blank">github.com</a>
-4. <a href="https://dashboard.heroku.com/" target="_blank">heroku.com</a>
+1. w3schools.com
+2. stackoverflow.com
+3. github.com
+4. heroku.com
 5. <a href="https://github.com/AlishaSaleh" target="_blank">Alisha Saleh</a>
 6. <a href="https://github.com/kvtemadden" target="_blank">Kate Madden</a>
 
