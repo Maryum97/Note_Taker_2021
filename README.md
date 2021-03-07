@@ -40,9 +40,13 @@ The app itself is very simplistic and user-friendly. On opening the link to the 
 Furthermore, you are also able to delete a note using the red button on the note that looks like a bin. To see your previous note and description, click on that note in the list and it renders on the page. Click on the 'pencil' to remove the note from the page.
 
 ## 💻 Usage
-Read the instructions and use the app at all times, but do ensure that the 'node server.js' command is always running in the server. Here is an image of the deployed app:
+Read the instructions and use the app at all times, but do ensure that the 'node server.js' command is always running in the server. Here are some images of the deployed app:
+
+![Annotation 2021-03-07 173910](https://user-images.githubusercontent.com/73832871/110249061-10cd0800-7f6c-11eb-989e-75b567b0573f.png)
+Landing page
 
 ![Annotation 2021-03-07 173349](https://user-images.githubusercontent.com/73832871/110248971-9b613780-7f6b-11eb-835c-1640892fcf4b.png)
+Notes page
 
 ## License
 <a href="https://github.com/Maryum97/Note_Taker_2021/blob/main/LICENSE">MIT License</a>
