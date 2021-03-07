@@ -50,6 +50,10 @@ Landing page
 ![Annotation 2021-03-07 173349](https://user-images.githubusercontent.com/73832871/110248971-9b613780-7f6b-11eb-835c-1640892fcf4b.png)
 Notes page
 
+Here is the link to the deployed page on heroku:
+
+<a href="https://maryum-app-1.herokuapp.com/" target="_blank">My Note Taker App</a>
+
 ## License
 <a href="https://github.com/Maryum97/Note_Taker_2021/blob/main/LICENSE">MIT License</a>
 <br />
