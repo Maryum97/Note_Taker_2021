@@ -39,7 +39,7 @@ In order to kill the run command, simply press 'Ctrl + C' in the server. This te
 Read the instructions and use the app at all times, but do ensure that the 'node server.js' command is always running in the server.
 
 ## License
-<a href="https://img.shields.io/badge/">MIT License</a>
+<a href="https://github.com/Maryum97/Note_Taker_2021/blob/main/LICENSE">MIT License</a>
 <br />
 This application is covered by the MIT License license. 
 
@@ -52,10 +52,10 @@ This repository does not have any test files. It does, however, pass the require
 
 ## 💐 Credits
 I would like to credit the following sources and people for the successful creation of my app:
-1. <a href="w3schools.com" target="_blank">w3schools.com</a>
-2. <a href="stackoverflow.com" target="_blank">stackoverflow.com</a>
+1. <a href="https://w3schools.com/" target="_blank">w3schools.com</a>
+2. <a href="https://stackoverflow.com/" target="_blank">stackoverflow.com</a>
 3. <a href="https://github.com/" target="_blank">github.com</a>
-4. <a href="heroku.com" target="_blank">heroku.com</a>
+4. <a href="https://dashboard.heroku.com/" target="_blank">heroku.com</a>
 5. <a href="https://github.com/AlishaSaleh" target="_blank">Alisha Saleh</a>
 6. <a href="https://github.com/kvtemadden" target="_blank">Kate Madden</a>
 
