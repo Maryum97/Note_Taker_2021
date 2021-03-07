@@ -52,12 +52,12 @@ This repository does not have any test files. It does, however, pass the require
 
 ## 💐 Credits
 I would like to credit the following sources and people for the successful creation of my app:
-1. <a href="w3schools.com">w3schools.com</a>
-2. <a href="stackoverflow.com">stackoverflow.com</a>
-3. <a href="https://github.com/">github.com</a>
-4. <a href="heroku.com">heroku.com</a>
-5. <a href="https://github.com/AlishaSaleh">Alisha Saleh</a>
-6. <a href="https://github.com/kvtemadden">Kate Madden</a>
+1. <a href="w3schools.com" target="_blank">w3schools.com</a>
+2. <a href="stackoverflow.com" target="_blank">stackoverflow.com</a>
+3. <a href="https://github.com/" target="_blank">github.com</a>
+4. <a href="heroku.com" target="_blank">heroku.com</a>
+5. <a href="https://github.com/AlishaSaleh" target="_blank">Alisha Saleh</a>
+6. <a href="https://github.com/kvtemadden" target="_blank">Kate Madden</a>
 
 
 ## ✋ Questions
