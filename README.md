@@ -26,12 +26,12 @@ There are no installation liabilities for users to take advantage of this app. A
 ## ⚙️ Instructions
 Install the packages in the node.js server using the following commands:
 
->> npm install express
->> npm install uniqid
+> npm install express <br>
+> npm install uniqid
 
 After installing the relevant apps and packages defined above, the user must run the following command in the server in order to run the app in the browser:
 
->> node server.js --> (because the request is responded through the server.js file)
+> node server.js --> (because the request is responded through the server.js file)
 
 In order to kill the run command, simply press 'Ctrl + C' in the server. This terminates the rendering of the app in the browser.
 
@@ -39,7 +39,7 @@ In order to kill the run command, simply press 'Ctrl + C' in the server. This te
 Read the instructions and use the app at all times, but do ensure that the 'node server.js' command is always running in the server.
 
 ## License
-![badge](https://img.shields.io/badge/license-MIT License)
+<a href="https://img.shields.io/badge/">MIT License</a>
 <br />
 This application is covered by the MIT License license. 
 
